@@ -445,7 +445,6 @@ function initMusicPlayer() {
   const audio = document.getElementById('background-music');
   if (!toggleBtn || !audio) return;
 
-  const label = toggleBtn.querySelector('.music-btn-text');
   audio.volume = 0.4;
 
   const updatePlayer = () => {
@@ -453,7 +452,6 @@ function initMusicPlayer() {
     toggleBtn.classList.toggle('playing', isPlaying);
     toggleBtn.setAttribute('aria-pressed', String(isPlaying));
     toggleBtn.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
-    if (label) label.textContent = isPlaying ? 'Music Playing' : 'Play Music';
   };
 
   toggleBtn.addEventListener('click', async () => {
