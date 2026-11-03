@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pinterest-inspired wedding photography gallery of Swathika & Akshay Janardanan.">
+  <title>Photo Gallery | Swathika &amp; Akshay Janardanan</title>
+
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Alex Brush -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23F8F5EF' stroke='%23C5A059' stroke-width='2'/%3E%3Cpath d='M50 24 C42 34 32 44 26 58 C22 66 26 76 36 78 C44 79 48 72 50 66 C52 72 56 79 64 78 C74 76 78 66 74 58 C68 44 58 34 50 24 Z' fill='none' stroke='%2351453E' stroke-width='1.5'/%3E%3Ctext x='50' y='92' font-family='serif' font-size='11' text-anchor='middle' fill='%2351453E'%3ES %26 A%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="header-nav header-subpage">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="Swathika and Akshay Wedding Home">
+        <div class="brand-monogram">S&amp;A</div>
+        <span class="brand-names">Swathika &amp; Akshay</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="meet-the-couple.html" class="nav-link">Meet the Couple</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="wedding-details.html" class="nav-link">Wedding Details</a></li>
+        <li><a href="location.html" class="nav-link">Location</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <nav id="mobile-navigation" class="mobile-nav-drawer" aria-label="Mobile navigation" aria-hidden="true" inert>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="meet-the-couple.html" class="mobile-nav-link">Meet the Couple</a>
+    <a href="gallery.html" class="mobile-nav-link active">Gallery</a>
+    <a href="wedding-details.html" class="mobile-nav-link">Wedding Details</a>
+    <a href="location.html" class="mobile-nav-link">Location</a>
+  </nav>
+
+  <main>
+    <!-- =========================================================================
+         EDITORIAL SUBPAGE HERO
+         ========================================================================= -->
+    <section class="subpage-hero">
+      <div class="subpage-hero-bg">
+        <img src="images/couple-hero.jpg" alt="" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80';">
+      </div>
+      <div class="container subpage-hero-content">
+        <span class="eyebrow">Moments Frozen in Amber &amp; Gold</span>
+        <h1 class="subpage-title">Photo Gallery</h1>
+        <div class="floral-divider">
+          <svg viewBox="0 0 40 20"><path d="M20 2 C18 7 14 11 8 13 C12 14 17 12 20 18 C23 12 28 14 32 13 C26 11 22 7 20 2 Z"/></svg>
+        </div>
+        <p class="subpage-subtitle">
+          “Some moments become memories. Some people become forever.”
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PINTEREST MASONRY PHOTO GALLERY
+         ========================================================================= -->
+    <section class="section">
+      <div class="container">
+        <!-- Category Filter Pills -->
+        <div class="gallery-filters">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Our Photos</button>
+        </div>
+
+        <!-- Masonry Grid with Portrait, Landscape, and Square Layouts -->
+        <div class="masonry-container">
+          
+          <!-- 1. Couple Hero (Portrait) -->
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View photo: Swathika and Akshay" data-category="couples" data-title="Swathika &amp; Akshay" data-caption="Two souls, one heart, one beautiful forever.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-hero.jpg" alt="Swathika and Akshay" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">Swathika &amp; Akshay</h4>
+              <p class="gallery-card-caption">Two souls, one heart, one beautiful forever.</p>
+            </div>
+          </div>
+
+          <!-- 4. Couple Moment 1 (Landscape) -->
+          <div class="gallery-card aspect-landscape" role="button" tabindex="0" aria-label="View photo: Together is a Beautiful Place to Be" data-category="couples" data-title="Together is a Beautiful Place to Be" data-caption="Sharing quiet smiles and boundless laughter together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-1.jpg" alt="Couple Moment 1" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">Together is a Beautiful Place to Be</h4>
+              <p class="gallery-card-caption">Sharing quiet smiles and boundless laughter together.</p>
+            </div>
+          </div>
+
+          <!-- 5. Couple Moment 2 (Square) -->
+          <div class="gallery-card aspect-square" role="button" tabindex="0" aria-label="View photo: A New Chapter, A Lifetime of Love" data-category="couples" data-title="A New Chapter, A Lifetime of Love" data-caption="Celebrating the vows that will unite our families.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-2.jpg" alt="Couple Moment 2" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Lifetime of Love</h4>
+              <p class="gallery-card-caption">Celebrating the vows that will unite our families.</p>
+            </div>
+          </div>
+
+          <!-- 6. Couple Moment 3 (Portrait) -->
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View photo: Cherished Glimpses" data-category="couples" data-title="Cherished Glimpses" data-caption="Holding hands as we step forward into our blessed future.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-3.jpg" alt="Couple Moment 3" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">Cherished Glimpses</h4>
+              <p class="gallery-card-caption">Holding hands as we step forward into our blessed future.</p>
+            </div>
+          </div>
+
+          <!-- 7. Couple Moment 4 (Landscape) -->
+          <div class="gallery-card aspect-landscape" role="button" tabindex="0" aria-label="View photo: Golden Twilight Promises" data-category="couples" data-title="Golden Twilight Promises" data-caption="Under the soft Kerala sky, blessed by the love of our families.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-4.jpg" alt="Couple Moment 4" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1100&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">Golden Twilight Promises</h4>
+              <p class="gallery-card-caption">Under the soft sky, blessed by the love of our families.</p>
+            </div>
+          </div>
+
+          <!-- 8. Couple Moment 5 (Square) -->
+          <div class="gallery-card aspect-square" role="button" tabindex="0" aria-label="View photo: Forever in My Heart" data-category="couples" data-title="Forever in My Heart" data-caption="A smile that illuminates every tomorrow.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-5.jpg" alt="Couple Moment 5" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">Forever in My Heart</h4>
+              <p class="gallery-card-caption">A smile that illuminates every tomorrow.</p>
+            </div>
+          </div>
+
+          <!-- 9. Couple Moment 6 (Portrait) -->
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View photo: The Sacred Threshold" data-category="couples" data-title="The Sacred Threshold" data-caption="Counting down to Saturday, 2 January 2027.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-6.jpg" alt="Couple Moment 6" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1000&q=80';">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">The Sacred Threshold</h4>
+              <p class="gallery-card-caption">Counting down to Saturday, 2 January 2027.</p>
+            </div>
+          </div>
+
+          <!-- Additional couple portraits -->
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 1" data-category="couples" data-title="A Moment Together 1" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-7.jpg" alt="Swathika and Akshay together, photo 1" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 2" data-category="couples" data-title="A Moment Together 2" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-8.jpg" alt="Swathika and Akshay together, photo 2" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 3" data-category="couples" data-title="A Moment Together 3" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-9.jpg" alt="Swathika and Akshay together, photo 3" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 4" data-category="couples" data-title="A Moment Together 4" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-10.jpg" alt="Swathika and Akshay together, photo 4" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 5" data-category="couples" data-title="A Moment Together 5" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-11.jpg" alt="Swathika and Akshay together, photo 5" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 6" data-category="couples" data-title="A Moment Together 6" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-1.jpg" alt="Swathika and Akshay together, photo 6" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 7" data-category="couples" data-title="A Moment Together 7" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-2.jpg" alt="Swathika and Akshay together, photo 7" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 8" data-category="couples" data-title="A Moment Together 8" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-3.jpg" alt="Swathika and Akshay together, photo 8" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 9" data-category="couples" data-title="A Moment Together 9" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-4.jpg" alt="Swathika and Akshay together, photo 9" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 10" data-category="couples" data-title="A Moment Together 10" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-5.jpg" alt="Swathika and Akshay together, photo 10" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card aspect-portrait" role="button" tabindex="0" aria-label="View couple photo 11" data-category="couples" data-title="A Moment Together 11" data-caption="A cherished moment from Swathika and Akshay's journey together.">
+            <div class="gallery-image-wrap">
+              <img src="images/couple-6.jpg" alt="Swathika and Akshay together, photo 11" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Couple Portrait</span>
+              <h4 class="gallery-card-title">A Moment Together</h4>
+              <p class="gallery-card-caption">A cherished moment from Swathika and Akshay's journey together.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FULL-SCREEN GALLERY LIGHTBOX (Vanilla JS)
+       ========================================================================= -->
+  <div id="gallery-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <button class="lightbox-close" type="button" aria-label="Close lightbox">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photograph">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photograph">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <div class="lightbox-info">
+        <div id="lightbox-counter" class="lightbox-counter">Photo 1 of 20</div>
+        <h3 id="lightbox-title" class="lightbox-title">Photo Title</h3>
+        <p id="lightbox-caption" class="lightbox-caption">Photo caption text.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       WEDDING INVITATION FOOTER
+       ========================================================================= -->
+  <footer class="wedding-footer">
+    <div class="container container-narrow">
+      <div class="footer-monogram">S&amp;A</div>
+      <h2 class="footer-names">Swathika &amp; Akshay Janardanan</h2>
+      <p class="footer-date">Saturday, 2 January 2027 • Kozhikode, Kerala</p>
+
+      <div class="floral-divider">
+        <svg viewBox="0 0 40 20"><path d="M20 2 C18 7 14 11 8 13 C12 14 17 12 20 18 C23 12 28 14 32 13 C26 11 22 7 20 2 Z"/></svg>
+      </div>
+
+      <p class="footer-blessing">
+        “With the blessings of our families, we warmly invite you to join us and celebrate the beginning of our forever. Your presence and blessings will make our special day even more beautiful.”
+      </p>
+
+      <div style="margin: 1.5rem 0;">
+        <button type="button" class="btn btn-secondary open-share-btn">Share Invitation</button>
+      </div>
+
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="meet-the-couple.html">Meet the Couple</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="wedding-details.html">Wedding Details</a>
+        <a href="location.html">Location</a>
+      </div>
+
+      <p class="footer-copy">
+        Swathika &amp; Akshay Janardanan • Saturday, 2 January 2027
+      </p>
+    </div>
+  </footer>
+  
+  <div id="share-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Share Wedding Invitation">
+    <div class="modal-box" style="max-width: 460px;">
+      <button id="share-close-btn" class="modal-close" type="button" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="eyebrow">Wedding of Swathika &amp; Akshay</span>
+        <h3 style="font-size: 2rem;">Share Our Invitation</h3>
+        <div class="floral-divider">
+          <svg viewBox="0 0 40 20"><path d="M20 2 C18 7 14 11 8 13 C12 14 17 12 20 18 C23 12 28 14 32 13 C26 11 22 7 20 2 Z"/></svg>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-brown-light);">Share this link with friends and family.</p>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <input type="text" id="share-url-input" class="form-input" value="https://swathika-akshay.wedding" readonly style="font-size: 0.85rem;">
+        <button id="copy-link-btn" type="button" class="btn btn-primary" style="white-space: nowrap; padding: 0.85rem 1.25rem;">Copy</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+        <button id="share-whatsapp-btn" type="button" class="btn btn-secondary" style="font-size: 0.72rem;">WhatsApp</button>
+        <button id="share-email-btn" type="button" class="btn btn-secondary" style="font-size: 0.72rem;">Email Invite</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
