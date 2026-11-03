@@ -22,6 +22,7 @@ const WEDDING_CONFIG = {
   venueName: 'Opulent Convention Centre',
   venueAddress: 'Kottedath Bazar, Chettikulam, Kozhikode, Kerala',
   groomAddress: 'Kesavan House, Nochikkattu Paramba, Puthoor P.O., Puthiyangadi, Kozhikode',
+  invitationUrl: 'https://15athira.github.io/Swaaa/',
 };
 
 // ------------------------------------------------------------------------------
@@ -246,105 +247,12 @@ function initGallery() {
 }
 
 // ------------------------------------------------------------------------------
-// 4. MODALS (RSVP & SHARE)
+// 4. INVITATION SHARING
 // ------------------------------------------------------------------------------
 function initModals() {
-  // RSVP Modal
-  const rsvpModal = document.getElementById('rsvp-modal');
-  const rsvpButtons = document.querySelectorAll('.open-rsvp-btn');
-  const rsvpClose = document.getElementById('rsvp-close-btn');
-  const rsvpForm = document.getElementById('rsvp-form');
-  const rsvpSuccessView = document.getElementById('rsvp-success-view');
-  const rsvpConfirmName = document.getElementById('rsvp-confirm-name');
-  const rsvpReturnBtn = document.getElementById('rsvp-return-btn');
-  const radioCards = document.querySelectorAll('.radio-card');
-
-  if (rsvpModal) {
-    rsvpButtons.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        rsvpModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    const closeRsvp = () => {
-      rsvpModal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (rsvpForm) {
-        rsvpForm.reset();
-        rsvpForm.style.display = '';
-      }
-      if (rsvpSuccessView) rsvpSuccessView.style.display = 'none';
-      radioCards.forEach((card) => {
-        const radio = card.querySelector('input[type="radio"]');
-        card.classList.toggle('selected', Boolean(radio && radio.checked));
-      });
-    };
-
-    if (rsvpClose) rsvpClose.addEventListener('click', closeRsvp);
-    if (rsvpReturnBtn) rsvpReturnBtn.addEventListener('click', closeRsvp);
-    rsvpModal.addEventListener('click', (e) => {
-      if (e.target === rsvpModal) closeRsvp();
-    });
-
-    radioCards.forEach((card) => {
-      const radio = card.querySelector('input[type="radio"]');
-      if (radio) {
-        radio.addEventListener('change', () => {
-          radioCards.forEach((item) => item.classList.toggle(
-            'selected',
-            Boolean(item.querySelector('input[type="radio"]')?.checked)
-          ));
-        });
-      }
-    });
-
-    // Handle Form Submit
-    if (rsvpForm) {
-      rsvpForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const nameInput = document.getElementById('rsvp-name');
-        const contactInput = document.getElementById('rsvp-email');
-        const countInput = document.getElementById('rsvp-guests');
-        const messageInput = document.getElementById('rsvp-note');
-        const attendanceInput = rsvpForm.querySelector('input[name="attending"]:checked');
-        const guestName = nameInput.value.trim();
-
-        const newRsvp = {
-          name: guestName,
-          contact: contactInput.value.trim(),
-          guests: countInput.value,
-          message: messageInput.value.trim(),
-          attendance: attendanceInput.value,
-          timestamp: new Date().toISOString(),
-        };
-
-        try {
-          const currentList = JSON.parse(localStorage.getItem('swathika_akshay_rsvps') || '[]');
-          if (!Array.isArray(currentList)) {
-            throw new TypeError('Stored RSVP data is not a list.');
-          }
-          currentList.push(newRsvp);
-          localStorage.setItem('swathika_akshay_rsvps', JSON.stringify(currentList));
-        } catch (err) {
-          console.error('Unable to save RSVP in this browser.', err);
-          showToast('Your RSVP could not be saved on this device. Please try again.');
-          return;
-        }
-
-        if (rsvpConfirmName) rsvpConfirmName.textContent = guestName;
-        rsvpForm.style.display = 'none';
-        if (rsvpSuccessView) rsvpSuccessView.style.display = 'block';
-      });
-    }
-  }
-
-  // Share Modal
   const shareModal = document.getElementById('share-modal');
   const shareButtons = document.querySelectorAll('.open-share-btn');
   const shareClose = document.getElementById('share-close-btn');
-  const copyBtn = document.getElementById('copy-link-btn');
   const whatsappBtn = document.getElementById('whatsapp-share-btn') || document.getElementById('share-whatsapp-btn');
   const emailBtn = document.getElementById('share-email-btn');
 
@@ -359,7 +267,7 @@ function initModals() {
 
     const closeShare = () => {
       shareModal.classList.remove('active');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
 
     if (shareClose) shareClose.addEventListener('click', closeShare);
@@ -367,25 +275,9 @@ function initModals() {
       if (e.target === shareModal) closeShare();
     });
 
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        const link = window.location.href.split('#')[0];
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(link).then(() => {
-            showToast('Invitation link copied to clipboard!');
-            closeShare();
-          }).catch(() => {
-            prompt('Copy this link:', link);
-          });
-        } else {
-          prompt('Copy this link:', link);
-        }
-      });
-    }
-
     if (whatsappBtn) {
       whatsappBtn.addEventListener('click', () => {
-        const url = window.location.href.split('#')[0];
+        const url = WEDDING_CONFIG.invitationUrl;
         const msg = encodeURIComponent(
           `✨ Wedding Invitation: Swathika & Akshay Janardanan\n` +
           `Date: Saturday, 2 January 2027\n` +
@@ -393,13 +285,13 @@ function initModals() {
           `Venue: Opulent Convention Centre, Kozhikode, Kerala\n\n` +
           `We joyfully invite you to celebrate with us. Explore the invitation and wedding details here:\n${url}`
         );
-        window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
+        window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank', 'noopener,noreferrer');
         closeShare();
       });
     }
     if (emailBtn) {
       emailBtn.addEventListener('click', () => {
-        const url = window.location.href.split('#')[0];
+        const url = WEDDING_CONFIG.invitationUrl;
         const subject = encodeURIComponent('Wedding Invitation: Swathika & Akshay Janardanan');
         const body = encodeURIComponent(
           `We joyfully invite you to celebrate the wedding of Swathika & Akshay Janardanan on Saturday, 2 January 2027 at Opulent Convention Centre, Kozhikode.\n\nView the invitation: ${url}`
@@ -411,7 +303,7 @@ function initModals() {
   } else {
     shareButtons.forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const url = window.location.href.split('#')[0];
+        const url = WEDDING_CONFIG.invitationUrl;
         if (navigator.share) {
           try {
             await navigator.share({
@@ -422,7 +314,7 @@ function initModals() {
           } catch (err) {
             if (err.name !== 'AbortError') {
               console.error('Unable to share invitation.', err);
-              showToast('The invitation could not be shared. Please copy the page link.');
+              showToast('The invitation could not be shared. Please try another sharing method.');
             }
           }
         } else if (navigator.clipboard && navigator.clipboard.writeText) {

@@ -1,41 +1,36 @@
 /* ==========================================================================
    SWATHIKA & AKSHAY JANARDANAN — WEDDING INVITATION STYLESHEET
-   Aesthetic: Sophisticated Kerala Wedding • Warm Terracotta & Coral • Modern Pinterest
+   Aesthetic: Minimal Kerala Wedding • Warm Ivory, Champagne Gold & Brown
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    CSS VARIABLES & DESIGN TOKENS
    -------------------------------------------------------------------------- */
 :root {
-  /* Warm Terracotta & Coral Wedding Palette */
-  --color-ivory: #FDF6F0;          /* Primary background canvas — warm cream */
-  --color-cream: #FEF9F5;          /* Soft pristine cream */
-  --color-ivory-dark: #F5E8DC;     /* Contrast section background */
-  --color-beige: #EDD5C0;          /* Elegant border & card line — warm sand */
-  --color-beige-light: #FAF0E8;    /* Light beige surface */
-  --color-beige-dark: #D4A882;     /* Accent separator line */
-  
-  /* Coral & Terracotta Accents — from uploaded palette */
-  --color-gold: #D4956A;           /* Warm sandy tan (left swatch) */
-  --color-gold-light: #FAEADE;     /* Very light sandy tint */
-  --color-gold-dark: #B87340;      /* Warm golden caramel (right swatch) */
-  --color-gold-metallic: linear-gradient(135deg, #E0A880 0%, #D4956A 50%, #B87340 100%);
+  --color-ivory: #FBF8F2;
+  --color-cream: #FFFDF9;
+  --color-ivory-dark: #F2ECE2;
+  --color-beige: #E6DED1;
+  --color-beige-light: #F7F2E9;
+  --color-beige-dark: #C9B994;
 
-  /* Coral / Terracotta — the signature accent */
-  --color-coral: #E05233;          /* Bold coral-red (middle swatch) */
-  --color-coral-dark: #C4401F;     /* Deep terracotta */
-  --color-coral-light: #FCEAE5;    /* Blush tint */
-  --color-coral-medium: #E87055;   /* Medium coral */
+  --color-gold: #C7B17F;
+  --color-gold-light: #F3ECD9;
+  --color-gold-dark: #927A4E;
+  --color-gold-metallic: linear-gradient(135deg, #D8C89F 0%, #B9A16C 100%);
 
-  /* Botanical accents — warm olive */
+  --color-coral: #B9A16C;
+  --color-coral-dark: #927A4E;
+  --color-coral-light: #F3ECD9;
+  --color-coral-medium: #C7B17F;
+
   --color-sage: #9E8E7A;
   --color-sage-light: #F0E8DE;
   --color-sage-dark: #6B5540;
 
-  /* Typography Colors */
-  --color-brown: #6B4535;          /* Primary warm brown text */
-  --color-brown-dark: #4A2515;     /* Rich deep terracotta-brown headings */
-  --color-brown-light: #9E6E5A;    /* Secondary muted warm brown */
+  --color-brown: #65584C;
+  --color-brown-dark: #453A31;
+  --color-brown-light: #85786B;
   --color-white: #FFFFFF;
 
   /* Fonts */
@@ -44,11 +39,11 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-script: 'Alex Brush', 'Great Vibes', cursive;
 
-  /* Shadows — warm terracotta-tinted */
-  --shadow-sm: 0 4px 14px rgba(74, 37, 21, 0.06);
-  --shadow-md: 0 12px 30px -8px rgba(74, 37, 21, 0.10), 0 0 1px rgba(74, 37, 21, 0.06);
-  --shadow-lg: 0 24px 50px -12px rgba(74, 37, 21, 0.15);
-  --shadow-xl: 0 32px 64px -16px rgba(74, 37, 21, 0.25);
+  /* Soft warm-brown shadows */
+  --shadow-sm: 0 3px 12px rgba(69, 58, 49, 0.05);
+  --shadow-md: 0 12px 30px -10px rgba(69, 58, 49, 0.12), 0 0 1px rgba(69, 58, 49, 0.06);
+  --shadow-lg: 0 22px 48px -16px rgba(69, 58, 49, 0.17);
+  --shadow-xl: 0 30px 60px -18px rgba(69, 58, 49, 0.24);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -76,7 +71,7 @@ body {
   color: var(--color-brown);
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
   display: flex;
@@ -109,7 +104,7 @@ main {
 
 /* Typography Defaults */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 400;
   color: var(--color-brown-dark);
   line-height: 1.2;
@@ -117,6 +112,27 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   color: var(--color-brown);
+}
+
+.brand-names,
+.hero-names,
+.footer-names,
+.couple-names,
+.ceremony-title span,
+.couple-signature {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+.section-title.couple-names {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 1;
+}
+
+.couple-signature {
+  margin-top: 1rem;
+  color: var(--color-brown-dark);
+  font-size: 1.8rem;
 }
 
 a {
@@ -162,21 +178,70 @@ textarea:focus-visible {
 }
 
 .section {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.home-save-date {
+  padding-top: 1rem;
+}
+
+.save-date-card {
+  padding: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.home-profiles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.home-profile-copy {
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.home-gallery-grid .gallery-card {
+  margin-bottom: 0;
+  border-radius: 0.9rem;
+}
+
+.home-gallery-cta {
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .home-profiles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 5.25rem;
+    padding-bottom: 5.25rem;
   }
 }
 
 .section-title-wrap {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 3.5rem auto;
+  margin: 0 auto 2.5rem auto;
 }
 
 .eyebrow {
@@ -190,7 +255,7 @@ textarea:focus-visible {
 }
 
 .section-title {
-  font-size: 2.35rem;
+  font-size: clamp(2rem, 5vw, 3.1rem);
   font-weight: 400;
   color: var(--color-brown-dark);
   letter-spacing: -0.01em;
@@ -205,7 +270,7 @@ textarea:focus-visible {
 .section-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
   color: var(--color-brown-light);
   margin-top: 0.5rem;
 }
@@ -274,24 +339,24 @@ textarea:focus-visible {
 .btn-primary {
   background-color: var(--color-coral);
   color: var(--color-white);
-  box-shadow: 0 4px 16px rgba(224, 82, 51, 0.28);
+  box-shadow: 0 4px 16px rgba(146, 122, 78, 0.18);
 }
 
 .btn-primary:hover {
   background-color: var(--color-coral-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(224, 82, 51, 0.4);
+  box-shadow: 0 8px 24px rgba(146, 122, 78, 0.24);
 }
 
 .btn-gold {
   background: var(--color-gold-metallic);
   color: var(--color-white);
-  box-shadow: 0 4px 16px rgba(212, 149, 106, 0.35);
+  box-shadow: 0 4px 16px rgba(146, 122, 78, 0.2);
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(212, 149, 106, 0.5);
+  box-shadow: 0 8px 24px rgba(146, 122, 78, 0.28);
 }
 
 .btn-secondary {
@@ -336,10 +401,10 @@ textarea:focus-visible {
   background-color: var(--color-cream);
   border: 1px solid var(--color-beige);
   border-radius: 1.5rem;
-  padding: 2rem 2.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   text-align: center;
   max-width: 780px;
-  margin: 3rem auto;
+  margin: 2rem auto;
   position: relative;
 }
 
@@ -371,11 +436,11 @@ textarea:focus-visible {
 }
 
 .header-nav.scrolled {
-  background-color: rgba(253, 246, 240, 0.96);
+  background-color: rgba(251, 248, 242, 0.96);
   backdrop-filter: blur(14px);
   padding: 0.85rem 0;
-  box-shadow: 0 2px 20px rgba(74, 37, 21, 0.08);
-  border-bottom: 1px solid rgba(237, 213, 192, 0.8);
+  box-shadow: 0 2px 20px rgba(69, 58, 49, 0.08);
+  border-bottom: 1px solid rgba(201, 185, 148, 0.55);
 }
 
 .nav-container {
@@ -404,8 +469,7 @@ textarea:focus-visible {
 }
 
 .brand-names {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.7rem;
   letter-spacing: 0.03em;
 }
 
@@ -430,6 +494,7 @@ textarea:focus-visible {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   transition: all var(--transition-fast);
+  z-index: 2;
 }
 
 .nav-link:hover {
@@ -447,11 +512,6 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-.nav-rsvp-btn {
-  padding: 0.6rem 1.35rem;
-  font-size: 0.72rem;
 }
 
 .mobile-menu-toggle {
@@ -490,7 +550,7 @@ textarea:focus-visible {
   top: 5rem;
   left: 0;
   right: 0;
-  background-color: rgba(253, 246, 240, 0.98);
+  background-color: rgba(251, 248, 242, 0.98);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-beige);
   padding: 1.5rem;
@@ -544,8 +604,8 @@ textarea:focus-visible {
 
 .header-subpage {
   color: var(--color-brown);
-  background-color: rgba(253, 246, 240, 0.94);
-  border-bottom: 1px solid rgba(237, 213, 192, 0.85);
+  background-color: rgba(251, 248, 242, 0.94);
+  border-bottom: 1px solid rgba(201, 185, 148, 0.55);
   backdrop-filter: blur(12px);
 }
 
@@ -554,8 +614,8 @@ textarea:focus-visible {
    -------------------------------------------------------------------------- */
 .subpage-hero {
   position: relative;
-  padding-top: 8.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 7.5rem;
+  padding-bottom: 3.25rem;
   text-align: center;
   background-color: var(--color-ivory);
   border-bottom: 1px solid var(--color-beige);
@@ -574,12 +634,13 @@ textarea:focus-visible {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.13;
+  opacity: 0.18;
   filter: blur(1px);
+  overflow: hidden;
 }
 
 .subpage-hero-couple .subpage-hero-bg {
-  opacity: 0.28;
+  opacity: 0.32;
   filter: none;
 }
 
@@ -587,6 +648,9 @@ textarea:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+  transform: scale(1.08);
+  transform-origin: center center;
 }
 
 .subpage-hero-content {
@@ -613,21 +677,15 @@ textarea:focus-visible {
 }
 
 .subpage-title {
-  font-size: 2.75rem;
+  font-size: clamp(2.35rem, 6vw, 4.25rem);
   font-weight: 400;
   letter-spacing: -0.02em;
-}
-
-@media (min-width: 768px) {
-  .subpage-title {
-    font-size: 4.25rem;
-  }
 }
 
 .subpage-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   color: var(--color-brown-light);
   max-width: 650px;
   margin: 0.5rem auto 0 auto;
@@ -645,7 +703,7 @@ textarea:focus-visible {
   justify-content: center;
   text-align: center;
   color: var(--color-white);
-  padding: 6.5rem 1.5rem 5rem 1.5rem;
+  padding: 7rem 1.5rem 4rem;
   overflow: hidden;
 }
 
@@ -660,13 +718,6 @@ textarea:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  transform: scale(1.03);
-  animation: heroSubtleScale 16s infinite alternate ease-in-out;
-}
-
-@keyframes heroSubtleScale {
-  0% { transform: scale(1.0); }
-  100% { transform: scale(1.06); }
 }
 
 .hero-overlay {
@@ -708,7 +759,7 @@ textarea:focus-visible {
   font-style: italic;
   font-size: 1.35rem;
   font-weight: 300;
-  color: #FCDEC9;
+  color: var(--color-gold-light);
   margin-bottom: 0.5rem;
 }
 
@@ -719,42 +770,26 @@ textarea:focus-visible {
 }
 
 .hero-names {
-  font-family: var(--font-serif);
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 1.05;
-  margin: 0.4rem 0 1.25rem 0;
-  letter-spacing: -0.01em;
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  line-height: 0.95;
+  margin: 0.55rem 0 1.25rem;
+  letter-spacing: 0;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
 }
 
-@media (min-width: 768px) {
-  .hero-names {
-    font-size: 5.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-names {
-    font-size: 7rem;
-  }
-}
-
 .hero-ampersand {
-  font-style: italic;
-  font-weight: 300;
-  color: #F0A882;
+  color: #E5D5AE;
 }
 
 .hero-details {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.9rem 1.5rem;
   font-size: 0.88rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.11em;
   color: var(--color-ivory);
-  margin: 1.5rem 0 2.25rem 0;
+  margin: 1.25rem 0 1.75rem;
 }
 
 @media (min-width: 640px) {
@@ -776,7 +811,7 @@ textarea:focus-visible {
 .hero-detail-item svg {
   width: 16px;
   height: 16px;
-  color: #E8A880;
+  color: #E5D5AE;
 }
 
 .hero-actions {
@@ -785,56 +820,6 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--color-ivory);
-  cursor: pointer;
-  text-decoration: none;
-  opacity: 0.85;
-  transition: opacity var(--transition-fast);
-}
-
-.scroll-indicator:hover {
-  opacity: 1;
-}
-
-.scroll-indicator span {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-}
-
-.scroll-mouse {
-  width: 22px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  display: flex;
-  justify-content: center;
-  padding-top: 5px;
-}
-
-.scroll-wheel {
-  width: 3px;
-  height: 6px;
-  background-color: #E8A880;
-  border-radius: 999px;
-  animation: scrollWheel 2s infinite;
-}
-
-@keyframes scrollWheel {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(12px); opacity: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -858,7 +843,7 @@ textarea:focus-visible {
   background: var(--color-white);
   border: 1px solid var(--color-beige);
   border-radius: 1.25rem;
-  padding: 1.15rem 0.5rem;
+  padding: 1rem 0.5rem;
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-normal);
@@ -956,7 +941,7 @@ textarea:focus-visible {
   background: var(--color-coral);
   color: #FFF;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(224, 82, 51, 0.35);
+  box-shadow: 0 4px 14px rgba(146, 122, 78, 0.28);
   position: relative;
   transform: scale(1.1);
   border: 2px solid var(--color-gold-dark);
@@ -968,7 +953,7 @@ textarea:focus-visible {
   top: -9px;
   right: -4px;
   font-size: 11px;
-  color: #D4956A;
+  color: var(--color-gold-dark);
 }
 
 /* --------------------------------------------------------------------------
@@ -991,7 +976,7 @@ textarea:focus-visible {
   background: var(--color-white);
   border: 1px solid var(--color-beige);
   border-radius: 2rem;
-  padding: 2.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   box-shadow: var(--shadow-sm);
   text-align: center;
 }
@@ -1001,7 +986,7 @@ textarea:focus-visible {
   aspect-ratio: 4 / 5;
   border-radius: 1.5rem;
   overflow: hidden;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.35rem;
   background-color: var(--color-beige);
   position: relative;
 }
@@ -1010,11 +995,6 @@ textarea:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.profile-card:hover .profile-photo img {
-  transform: scale(1.05);
 }
 
 .profile-role {
@@ -1050,8 +1030,8 @@ textarea:focus-visible {
   font-style: italic;
   font-size: 1.05rem;
   color: var(--color-brown-dark);
-  background-color: var(--color-coral-light);
-  border-left: 2px solid var(--color-coral);
+  background-color: var(--color-beige-light);
+  border-left: 2px solid var(--color-gold);
   padding: 0.95rem 1.15rem;
   border-radius: 0 0.75rem 0.75rem 0;
   text-align: left;
@@ -1061,8 +1041,8 @@ textarea:focus-visible {
 .family-tree-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -1075,7 +1055,7 @@ textarea:focus-visible {
   background: var(--color-white);
   border: 1px solid var(--color-beige);
   border-radius: 1.75rem;
-  padding: 2.25rem 2rem;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1083,8 +1063,8 @@ textarea:focus-visible {
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  border-radius: 1.1rem;
-  margin-bottom: 1.5rem;
+  border-radius: 0.9rem;
+  margin-bottom: 1.15rem;
 }
 
 .family-card-header {
@@ -1105,12 +1085,12 @@ textarea:focus-visible {
 .family-members-list {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.85rem;
 }
 
 .family-member-item {
   border-bottom: 1px solid var(--color-beige-light);
-  padding-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
 }
 
 .family-member-item:last-child {
@@ -1144,7 +1124,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .filter-btn {
@@ -1174,7 +1154,7 @@ textarea:focus-visible {
 
 .masonry-container {
   column-count: 1;
-  column-gap: 1.5rem;
+  column-gap: 1.25rem;
 }
 
 @media (min-width: 600px) {
@@ -1192,25 +1172,18 @@ textarea:focus-visible {
 
 .gallery-card {
   break-inside: avoid;
-  margin-bottom: 1.5rem;
-  border-radius: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: 1rem;
   overflow: hidden;
   position: relative;
   background-color: var(--color-beige);
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-@media (min-width: 960px) {
-  .gallery-card {
-    margin-bottom: 2rem;
-  }
+  transition: box-shadow var(--transition-normal);
 }
 
 .gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .gallery-card:focus-visible {
@@ -1220,19 +1193,16 @@ textarea:focus-visible {
 
 .gallery-image-wrap {
   width: 100%;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 
 .gallery-image-wrap img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  transition: transform var(--transition-slow);
-}
-
-.gallery-card:hover .gallery-image-wrap img {
-  transform: scale(1.06);
+  object-fit: cover;
 }
 
 .aspect-portrait { aspect-ratio: 3 / 4; }
@@ -1242,18 +1212,25 @@ textarea:focus-visible {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(74, 37, 21, 0.90) 0%, transparent 60%);
+  background:   linear-gradient(to top, rgba(69, 58, 49, 0.9) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.5rem;
   color: var(--color-white);
-  opacity: 0;
+  opacity: 1;
   transition: opacity var(--transition-normal);
 }
 
-.gallery-card:hover .gallery-overlay {
-  opacity: 1;
+@media (hover: hover) {
+  .gallery-overlay {
+    opacity: 0;
+  }
+
+  .gallery-card:hover .gallery-overlay,
+  .gallery-card:focus-visible .gallery-overlay {
+    opacity: 1;
+  }
 }
 
 .gallery-tag {
@@ -1339,7 +1316,7 @@ textarea:focus-visible {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #E8A880;
+  color: var(--color-gold-light);
   margin-bottom: 0.35rem;
 }
 
@@ -1370,6 +1347,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   transition: background var(--transition-fast);
+  z-index: 2;
 }
 
 .lightbox-close:hover {
@@ -1391,6 +1369,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
+  z-index: 2;
 }
 
 .lightbox-nav:hover {
@@ -1414,7 +1393,7 @@ textarea:focus-visible {
 }
 
 .muhurtham-highlight-box {
-  background: linear-gradient(135deg, #FEF9F5 0%, #F8E8DA 100%);
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige-light) 100%);
   border: 1px solid var(--color-coral);
   border-radius: 1.5rem;
   padding: 2.25rem;
@@ -1438,6 +1417,161 @@ textarea:focus-visible {
   font-weight: 600;
   margin: 0.5rem 0;
   letter-spacing: 0.05em;
+}
+
+.ceremony-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1040px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-beige);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.ceremony-card-image {
+  min-height: 280px;
+  background: var(--color-beige);
+}
+
+.ceremony-card-image img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+}
+
+.ceremony-card-body {
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+
+.event-badge {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--color-beige);
+  border-radius: 999px;
+  background: var(--color-beige-light);
+  color: var(--color-gold-dark);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ceremony-title {
+  margin: 0.75rem 0;
+  font-size: 2rem;
+}
+
+.ceremony-description {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--color-brown);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.ceremony-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1.75rem 0;
+}
+
+.event-meta-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 112px;
+  padding: 1rem;
+  border: 1px solid var(--color-beige);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, var(--color-cream), var(--color-beige-light));
+  text-align: center;
+}
+
+.ceremony-meta-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-brown-light);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ceremony-meta-value {
+  color: var(--color-brown-dark);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ceremony-meta-time {
+  color: var(--color-gold-dark);
+  font-size: 1.4rem;
+}
+
+.ceremony-venue-name,
+.ceremony-venue-address {
+  display: block;
+}
+
+.ceremony-venue-address {
+  margin-top: 0.2rem;
+  color: var(--color-brown-light);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.ceremony-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .ceremony-card-body {
+    padding: 2.5rem;
+  }
+
+  .ceremony-title {
+    font-size: 2.25rem;
+  }
+
+  .ceremony-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ceremony-venue-item {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 960px) {
+  .ceremony-card {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .ceremony-card-image {
+    min-height: 100%;
+  }
+
+  .ceremony-card-body {
+    padding: 3rem;
+  }
+
+  .ceremony-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1518,7 +1652,7 @@ textarea:focus-visible {
 .wedding-footer {
   background-color: var(--color-ivory-dark);
   border-top: 1px solid var(--color-beige);
-  padding: 5rem 1.5rem 3.5rem 1.5rem;
+  padding: 3.5rem 1.5rem 2rem;
   text-align: center;
   position: relative;
 }
@@ -1538,7 +1672,7 @@ textarea:focus-visible {
 }
 
 .footer-names {
-  font-size: 2.75rem;
+  font-size: clamp(2.6rem, 7vw, 4rem);
   color: var(--color-brown-dark);
   margin-bottom: 0.25rem;
 }
@@ -1554,10 +1688,10 @@ textarea:focus-visible {
 .footer-blessing {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.35rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: var(--color-brown);
   max-width: 680px;
-  margin: 1.5rem auto 2.25rem auto;
+  margin: 1.25rem auto 1.5rem;
   line-height: 1.6;
 }
 
@@ -1565,8 +1699,8 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 0.8rem 1.4rem;
+  margin: 1.5rem 0;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -1580,13 +1714,13 @@ textarea:focus-visible {
 .footer-copy {
   font-size: 0.75rem;
   color: var(--color-brown-light);
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid rgba(233, 225, 214, 0.7);
 }
 
 /* --------------------------------------------------------------------------
-   MODALS: RSVP & SHARE
+   INVITATION SHARING
    -------------------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
@@ -1653,76 +1787,144 @@ textarea:focus-visible {
   background: var(--color-beige);
 }
 
-.form-group {
-  margin-bottom: 1.25rem;
+.share-modal-box {
+  max-width: 440px;
+  padding: 2rem 1.5rem 1.5rem;
+  border-color: var(--color-beige-dark);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(201, 185, 148, 0.16), transparent 55%),
+    var(--color-cream);
 }
 
-.form-label {
-  display: block;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 600;
-  color: var(--color-brown);
-  margin-bottom: 0.4rem;
+@media (min-width: 640px) {
+  .share-modal-box {
+    padding: 2.5rem;
+  }
 }
 
-.form-input, .form-select, .form-textarea {
-  width: 100%;
-  padding: 0.85rem 1.15rem;
-  border-radius: 0.85rem;
-  border: 1px solid var(--color-beige);
-  background-color: var(--color-white);
-  color: var(--color-brown-dark);
-  font-size: 0.95rem;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-  outline: none;
-  border-color: var(--color-coral);
-  box-shadow: 0 0 0 3px rgba(224, 82, 51, 0.18);
-}
-
-.radio-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
-}
-
-.radio-card {
-  border: 1px solid var(--color-beige);
-  border-radius: 1rem;
-  padding: 1rem;
+.share-modal-header {
   text-align: center;
-  cursor: pointer;
-  background: var(--color-white);
-  transition: all var(--transition-fast);
+  padding: 0.25rem 1rem 1.25rem;
 }
 
-.radio-card.selected {
-  border-color: var(--color-coral);
-  background-color: var(--color-coral-light);
-}
-
-.radio-card input {
-  display: none;
-}
-
-.radio-card-title {
+.share-modal-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.25rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  color: var(--color-brown-dark);
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  display: block;
 }
 
-.radio-card-sub {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+.share-modal-monogram span {
+  color: var(--color-gold-dark);
+  font-size: 0.85rem;
+}
+
+.share-modal-header .eyebrow {
+  margin-bottom: 0.25rem;
+}
+
+.share-modal-title {
+  font-size: clamp(1.8rem, 7vw, 2.25rem);
+}
+
+.share-modal-copy {
+  max-width: 300px;
+  margin: 0.5rem auto 0;
   color: var(--color-brown-light);
-  display: block;
-  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.share-event-card {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-beige);
+  border-radius: 0.9rem;
+  background: rgba(247, 242, 233, 0.72);
+  color: var(--color-brown-light);
+  text-align: center;
+  font-size: 0.78rem;
+}
+
+.share-event-label {
+  margin-bottom: 0.1rem;
+  color: var(--color-brown-dark);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+}
+
+.share-options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--color-beige);
+  border-radius: 0.9rem;
+  background: var(--color-white);
+  color: var(--color-brown-dark);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.share-option:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-gold);
+  background: var(--color-beige-light);
+}
+
+.share-option-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  color: var(--color-gold-dark);
+}
+
+.share-option-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.share-option-text {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.share-option-text strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.share-option-text small {
+  color: var(--color-brown-light);
+  font-size: 0.75rem;
+}
+
+.share-option-arrow {
+  margin-left: auto;
+  color: var(--color-gold-dark);
+  font-size: 1.1rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -1793,7 +1995,7 @@ textarea:focus-visible {
 }
 
 /* Toast */
-.toast-notice {
+.toast {
   position: fixed;
   bottom: 2rem;
   left: 50%;
@@ -1811,7 +2013,7 @@ textarea:focus-visible {
   pointer-events: none;
 }
 
-.toast-notice.show {
+.toast.show {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
