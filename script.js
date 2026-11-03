@@ -22,7 +22,7 @@ const WEDDING_CONFIG = {
   venueName: 'Opulent Convention Centre',
   venueAddress: 'Kottedath Bazar, Chettikulam, Kozhikode, Kerala',
   groomAddress: 'Kesavan House, Nochikkattu Paramba, Puthoor P.O., Puthiyangadi, Kozhikode',
-  invitationUrl: 'https://15athira.github.io/Swaaa/',
+  invitationUrl: 'https://swathika-akshay-weddinginvitation.netlify.app',
 };
 
 // ------------------------------------------------------------------------------
