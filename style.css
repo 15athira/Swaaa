@@ -1057,6 +1057,7 @@ textarea:focus-visible {
   border-radius: 1.75rem;
   padding: clamp(1.1rem, 2.5vw, 1.75rem);
   box-shadow: var(--shadow-sm);
+  scroll-margin-top: 6rem;
 }
 
 .family-photo {
