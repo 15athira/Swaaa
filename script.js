@@ -224,6 +224,14 @@ function initGallery() {
     });
   });
 
+  const requestedPhoto = new URLSearchParams(window.location.search).get('photo');
+  if (requestedPhoto) {
+    const targetCard = Array.from(galleryCards).find(
+      (card) => card.querySelector('img')?.getAttribute('src') === `images/${requestedPhoto}`
+    );
+    if (targetCard) targetCard.click();
+  }
+
   function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
