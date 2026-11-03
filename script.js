@@ -438,90 +438,37 @@ function showToast(message) {
 }
 
 // ------------------------------------------------------------------------------
-// 7. AMBIENT ROMANTIC PIANO MUSIC (Web Audio API - zero external files)
+// 7. BACKGROUND MUSIC
 // ------------------------------------------------------------------------------
 function initMusicPlayer() {
   const toggleBtn = document.getElementById('music-toggle-btn');
-  if (!toggleBtn) return;
+  const audio = document.getElementById('background-music');
+  if (!toggleBtn || !audio) return;
 
-  let audioCtx = null;
-  let isPlaying = false;
-  let loopInterval = null;
+  const label = toggleBtn.querySelector('.music-btn-text');
+  audio.volume = 0.4;
 
-  // Gentle acoustic chords (Eb maj9 -> Cm9 -> Ab maj7 -> Bb sus4)
-  const chordNotes = [
-    [155.56, 196.0, 233.08, 311.13, 392.0],
-    [130.81, 196.0, 233.08, 261.63, 311.13, 392.0],
-    [103.83, 155.56, 207.65, 261.63, 311.13],
-    [116.54, 174.61, 233.08, 293.66, 349.23],
-  ];
+  const updatePlayer = () => {
+    const isPlaying = !audio.paused;
+    toggleBtn.classList.toggle('playing', isPlaying);
+    toggleBtn.setAttribute('aria-pressed', String(isPlaying));
+    toggleBtn.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+    if (label) label.textContent = isPlaying ? 'Music Playing' : 'Play Music';
+  };
 
-  function playNote(ctx, freq, time, duration = 2.4) {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, time);
-
-    gain.gain.setValueAtTime(0.001, time);
-    gain.gain.exponentialRampToValueAtTime(0.04, time + 0.05);
-    gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start(time);
-    osc.stop(time + duration + 0.1);
-  }
-
-  function startMelody() {
-    if (!audioCtx) {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new AudioContextClass();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    let chordIndex = 0;
-    const playNext = () => {
-      if (!audioCtx || audioCtx.state === 'closed') return;
-      const notes = chordNotes[chordIndex % chordNotes.length];
-      const now = audioCtx.currentTime;
-
-      notes.forEach((freq, i) => {
-        playNote(audioCtx, freq, now + i * 0.22, 2.8);
-      });
-      chordIndex++;
-    };
-
-    playNext();
-    loopInterval = setInterval(playNext, 3200);
-  }
-
-  function stopMelody() {
-    if (loopInterval) {
-      clearInterval(loopInterval);
-      loopInterval = null;
-    }
-    if (audioCtx && audioCtx.state === 'running') {
-      audioCtx.suspend();
-    }
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    if (isPlaying) {
-      stopMelody();
-      isPlaying = false;
-      toggleBtn.classList.remove('playing');
-      const label = toggleBtn.querySelector('.music-btn-text');
-      if (label) label.textContent = 'Play Music';
+  toggleBtn.addEventListener('click', async () => {
+    if (audio.paused) {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error('Unable to play background music.', error);
+        showToast('Unable to play the music. Please try again.');
+      }
     } else {
-      startMelody();
-      isPlaying = true;
-      toggleBtn.classList.add('playing');
-      const label = toggleBtn.querySelector('.music-btn-text');
-      if (label) label.textContent = 'Music Playing';
+      audio.pause();
     }
   });
+
+  audio.addEventListener('play', updatePlayer);
+  audio.addEventListener('pause', updatePlayer);
 }
