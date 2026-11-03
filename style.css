@@ -1380,6 +1380,12 @@ textarea:focus-visible {
 .lightbox-prev { left: 1.5rem; }
 .lightbox-next { right: 1.5rem; }
 
+@media (max-width: 767px) {
+  .lightbox-nav {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    WEDDING DETAILS PAGE
    -------------------------------------------------------------------------- */

@@ -167,10 +167,12 @@ function initGallery() {
   const closeBtn = document.querySelector('.lightbox-close');
   const prevBtn = document.querySelector('.lightbox-prev');
   const nextBtn = document.querySelector('.lightbox-next');
+  const lightboxImageWrap = lightbox.querySelector('.lightbox-img-wrap');
 
   let currentItems = [];
   let currentIndex = 0;
   let previousFocus = null;
+  let touchStart = null;
 
   function updateVisibleItems() {
     currentItems = Array.from(galleryCards).filter(
@@ -231,6 +233,31 @@ function initGallery() {
   if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
   if (prevBtn) prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+  if (lightboxImageWrap) {
+    lightboxImageWrap.addEventListener('touchstart', (event) => {
+      if (event.touches.length !== 1) {
+        touchStart = null;
+        return;
+      }
+
+      touchStart = {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY,
+      };
+    }, { passive: true });
+
+    lightboxImageWrap.addEventListener('touchend', (event) => {
+      if (!touchStart || !event.changedTouches.length) return;
+
+      const deltaX = event.changedTouches[0].clientX - touchStart.x;
+      const deltaY = event.changedTouches[0].clientY - touchStart.y;
+      touchStart = null;
+
+      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+      showImage(currentIndex + (deltaX < 0 ? 1 : -1));
+    }, { passive: true });
+  }
 
   // Close on backdrop click
   lightbox.addEventListener('click', (e) => {
