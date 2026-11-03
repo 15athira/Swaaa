@@ -445,7 +445,29 @@ function initMusicPlayer() {
   const audio = document.getElementById('background-music');
   if (!toggleBtn || !audio) return;
 
+  const storageKey = 'wedding-background-music';
+  const savedState = sessionStorage.getItem(storageKey);
+  let shouldPlay = false;
+  let savedTime = 0;
+
+  if (savedState) {
+    const state = JSON.parse(savedState);
+    if (state && typeof state === 'object') {
+      shouldPlay = state.playing === true;
+      if (Number.isFinite(state.currentTime) && state.currentTime >= 0) {
+        savedTime = state.currentTime;
+      }
+    }
+  }
+
   audio.volume = 0.4;
+
+  const saveState = () => {
+    sessionStorage.setItem(storageKey, JSON.stringify({
+      playing: shouldPlay,
+      currentTime: Number.isFinite(audio.currentTime) ? audio.currentTime : savedTime,
+    }));
+  };
 
   const updatePlayer = () => {
     const isPlaying = !audio.paused;
@@ -454,19 +476,40 @@ function initMusicPlayer() {
     toggleBtn.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
   };
 
+  const startPlayback = async (isAutomatic = false) => {
+    if (savedTime > 0) {
+      audio.currentTime = savedTime;
+      savedTime = 0;
+    }
+
+    try {
+      await audio.play();
+      shouldPlay = true;
+      saveState();
+    } catch (error) {
+      shouldPlay = false;
+      saveState();
+      console.error('Unable to play background music.', error);
+      if (!isAutomatic) showToast('Unable to play the music. Please try again.');
+      updatePlayer();
+    }
+  };
+
   toggleBtn.addEventListener('click', async () => {
     if (audio.paused) {
-      try {
-        await audio.play();
-      } catch (error) {
-        console.error('Unable to play background music.', error);
-        showToast('Unable to play the music. Please try again.');
-      }
+      shouldPlay = true;
+      await startPlayback();
     } else {
+      shouldPlay = false;
       audio.pause();
+      saveState();
     }
   });
 
   audio.addEventListener('play', updatePlayer);
   audio.addEventListener('pause', updatePlayer);
+  window.addEventListener('pagehide', saveState);
+
+  updatePlayer();
+  if (shouldPlay) startPlayback(true);
 }

@@ -770,15 +770,19 @@ textarea:focus-visible {
 }
 
 .hero-names {
+  font-family: var(--font-serif);
   font-size: clamp(4.5rem, 12vw, 8rem);
+  font-style: italic;
+  font-weight: 500;
   line-height: 0.95;
   margin: 0.55rem 0 1.25rem;
   letter-spacing: 0;
+  color: var(--color-ivory);
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
 }
 
 .hero-ampersand {
-  color: #E5D5AE;
+  color: var(--color-gold-light);
 }
 
 .hero-details {
