@@ -447,7 +447,7 @@ function initMusicPlayer() {
 
   const storageKey = 'wedding-background-music';
   const savedState = sessionStorage.getItem(storageKey);
-  let shouldPlay = false;
+  let shouldPlay = true;
   let savedTime = 0;
 
   if (savedState) {
@@ -487,10 +487,12 @@ function initMusicPlayer() {
       shouldPlay = true;
       saveState();
     } catch (error) {
-      shouldPlay = false;
+      shouldPlay = true;
       saveState();
       console.error('Unable to play background music.', error);
-      if (!isAutomatic) showToast('Unable to play the music. Please try again.');
+      showToast(isAutomatic
+        ? 'Tap the music icon to start the music.'
+        : 'Unable to play the music. Please try again.');
       updatePlayer();
     }
   };
@@ -508,7 +510,10 @@ function initMusicPlayer() {
 
   audio.addEventListener('play', updatePlayer);
   audio.addEventListener('pause', updatePlayer);
-  window.addEventListener('pagehide', saveState);
+  window.addEventListener('pagehide', () => {
+    saveState();
+    audio.pause();
+  });
 
   updatePlayer();
   if (shouldPlay) startPlayback(true);
